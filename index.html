@@ -1,4 +1,4 @@
-  <!DOCTYPE html><html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -358,22 +358,24 @@
     <h1>Barakah Filled Birthday, <span class="name">Sumaiya 💕</span></h1>
     <p>May Allah ﷻ bless this special day with light and peace</p>
   </header>  <main>
+    <!-- Surprise Overlay -->
     <div class="surprise-overlay" id="overlay">
       <button class="surprise-btn" id="openBtn">🎁 Press here to open your surprise</button>
-    </div>
-    <section class="card card-enhanced">
-      <h2>Heartfelt Wishes & Duas</h2>
-      <p>
-        On this beautiful day, we pray that Allah ﷻ grants you a life filled with
-        health, wisdom, and endless barakah. May every step you take be guided by
-        His light, every hardship be replaced with ease, and every dream be
-        rewarded with khair.
-      </p>
-      <p class="dua">🤍 
-        “May Allah grant you success in this world and the Akhirah, protect you
-        from all harm, and make you a source of benefit for the Ummah.”
-      </p>
-    </section><section class="character-wrap">
+    </div><section class="card card-enhanced">
+  <h2>Heartfelt Wishes & Duas</h2>
+  <p>
+    On this beautiful day, we pray that Allah ﷻ grants you a life filled with
+    health, wisdom, and endless barakah. May every step you take be guided by
+    His light, every hardship be replaced with ease, and every dream be
+    rewarded with khair.
+  </p>
+  <p class="dua">🤍 
+    “May Allah grant you success in this world and the Akhirah, protect you
+    from all harm, and make you a source of benefit for the Ummah.”
+  </p>
+</section>
+
+<section class="character-wrap">
   <div class="character">
     <div class="hijab"></div>
     <div class="head">
@@ -396,43 +398,28 @@
   </main>  <footer>
     Made with sincerity & duas 🤍 | Islamic Birthday Theme
   </footer>  <script>
-    // Surprise Game Logic
-    const overlay = document.getElementById('overlay');
-    const btn = document.getElementById('openBtn');
-
-    btn.addEventListener('click', () => {
-      overlay.style.display = 'none';
-    });
-
-    // Rose petals falling animation
-    const petalsCount = 20;
-    for (let i = 0; i < petalsCount; i++) {
-      const petal = document.createElement('div');
-      petal.className = 'petal';
-      petal.style.left = Math.random() * 100 + 'vw';
-      petal.style.animationDuration = 6 + Math.random() * 6 + 's';
-      petal.style.animationDelay = Math.random() * 5 + 's';
-      petal.style.transform = `scale(${0.6 + Math.random()})`;
-      document.body.appendChild(petal);
-    }
-
-    // Rose petals falling animation
-    const petalsCount = 20;
-    for (let i = 0; i < petalsCount; i++) {
-      const petal = document.createElement('div');
-      petal.className = 'petal';
-      petal.style.left = Math.random() * 100 + 'vw';
-      petal.style.animationDuration = 6 + Math.random() * 6 + 's';
-      petal.style.animationDelay = Math.random() * 5 + 's';
-      petal.style.transform = `scale(${0.6 + Math.random()})`;
-      document.body.appendChild(petal);
-    }
-
-
-    // Simple greeting effect
     document.addEventListener('DOMContentLoaded', () => {
-      console.log('May your day be filled with barakah 🌙');
-    });
+      // Surprise Game Logic (FIXED)
+      const overlay = document.getElementById('overlay');
+      const btn = document.getElementById('openBtn');
+
+      if (btn && overlay) {
+        btn.addEventListener('click', () => {
+          overlay.classList.add('hide');
+        });
+      }
+
+      // Rose petals falling animation
+      const petalsCount = 20;
+      for (let i = 0; i < petalsCount; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.animationDuration = 6 + Math.random() * 6 + 's';
+        petal.style.animationDelay = Math.random() * 5 + 's';
+        petal.style.transform = `scale(${0.6 + Math.random()})`;
+        document.body.appendChild(petal);
+      }
     });
   </script></body>
-    </html>
+  </html>
