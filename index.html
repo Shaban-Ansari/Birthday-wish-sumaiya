@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en">
+  <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -127,8 +127,8 @@
 
     .character {
       position: relative;
-      width: 180px;
-      height: 300px;
+      width: 220px;
+      height: 360px;
     }
 
     /* Head */
@@ -137,63 +137,147 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 90px;
-      height: 90px;
+      width: 95px;
+      height: 95px;
       background: #f1c27d;
       border-radius: 50%;
-      z-index: 2;
+      z-index: 3;
+      box-shadow: inset 0 -4px 0 rgba(0,0,0,0.1);
     }
 
     /* Hijab */
     .hijab {
       position: absolute;
-      top: -5px;
+      top: -10px;
       left: 50%;
       transform: translateX(-50%);
+      width: 140px;
+      height: 125px;
+      background: linear-gradient(180deg, #1f5f46, #123b2c);
+      border-radius: 70px 70px 50px 50px;
+      z-index: 2;
+    }
+
+    .hijab::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
       width: 120px;
-      height: 110px;
-      background: #1c4d3a;
-      border-radius: 60px 60px 40px 40px;
-      z-index: 1;
+      height: 70px;
+      background: inherit;
+      border-radius: 0 0 60px 60px;
+      transform: translateX(-50%);
     }
 
     /* Eyes */
     .eye {
       position: absolute;
-      top: 35px;
-      width: 8px;
-      height: 8px;
+      top: 38px;
+      width: 9px;
+      height: 9px;
       background: #000;
       border-radius: 50%;
       animation: blink 4s infinite;
     }
 
-    .eye.left { left: 28px; }
-    .eye.right { right: 28px; }
+    .eye::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 50%;
+      width: 12px;
+      height: 6px;
+      border-bottom: 2px solid #333;
+      border-radius: 0 0 10px 10px;
+      transform: translateX(-50%);
+    }
+
+    .eye.left { left: 26px; }
+    .eye.right { right: 26px; }
+
+    /* Smile */
+    .smile {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      width: 28px;
+      height: 14px;
+      border-bottom: 3px solid #7a3b2e;
+      border-radius: 0 0 20px 20px;
+      transform: translateX(-50%);
+    }
 
     /* Body / Lab Coat */
     .body {
       position: absolute;
-      top: 85px;
+      top: 95px;
       left: 50%;
       transform: translateX(-50%);
-      width: 130px;
-      height: 180px;
-      background: #ffffff;
+      width: 160px;
+      height: 210px;
+      background: linear-gradient(180deg, #ffffff, #f2f2f2);
+      border-radius: 24px;
+      box-shadow: inset 0 0 0 4px #ddd, 0 18px 35px rgba(0,0,0,0.25);
+    }
+
+    /* Hands */
+    .hand {
+      position: absolute;
+      top: 125px;
+      width: 40px;
+      height: 90px;
+      background: #f1c27d;
       border-radius: 20px;
-      box-shadow: inset 0 0 0 4px #ddd;
+      animation: wave 2.5s ease-in-out infinite;
+      transform-origin: top center;
+    }
+
+    .hand.left {
+      left: -28px;
+      animation-delay: 0s;
+    }
+
+    .hand.right {
+      right: -28px;
+      animation-delay: 1.2s;
+    }
+
+    @keyframes wave {
+      0%,100% { transform: rotate(0deg); }
+      50% { transform: rotate(12deg); }
+    }
+
+    .coat-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 3px;
+      height: 100%;
+      background: #ccc;
+      transform: translateX(-50%);
     }
 
     .stethoscope {
       position: absolute;
-      top: 20px;
+      top: 22px;
       left: 50%;
-      width: 60px;
-      height: 40px;
+      width: 70px;
+      height: 45px;
       border: 3px solid #555;
       border-top: none;
-      border-radius: 0 0 40px 40px;
+      border-radius: 0 0 45px 45px;
       transform: translateX(-50%);
+    }
+
+    .badge {
+      position: absolute;
+      top: 70px;
+      right: 18px;
+      width: 28px;
+      height: 18px;
+      background: #e6d18a;
+      border-radius: 4px;
     }
 
     /* Animations */
@@ -218,6 +302,34 @@
       font-size: 0.85rem;
       opacity: 0.8;
       color: #e6d18a;
+    }
+
+    /* Surprise Game Overlay */
+    .surprise-overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle, #0f3d2e, #061f17);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .surprise-btn {
+      padding: 18px 28px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 40px;
+      background: linear-gradient(135deg, #f4c97a, #d4af37);
+      color: #061f17;
+      cursor: pointer;
+      box-shadow: 0 0 30px rgba(212,175,55,0.6);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
     }
   
     /* Rose Petals */
@@ -246,6 +358,9 @@
     <h1>Barakah Filled Birthday, <span class="name">Sumaiya 💕</span></h1>
     <p>May Allah ﷻ bless this special day with light and peace</p>
   </header>  <main>
+    <div class="surprise-overlay" id="overlay">
+      <button class="surprise-btn" id="openBtn">🎁 Press here to open your surprise</button>
+    </div>
     <section class="card card-enhanced">
       <h2>Heartfelt Wishes & Duas</h2>
       <p>
@@ -262,10 +377,17 @@
   <div class="character">
     <div class="hijab"></div>
     <div class="head">
+      <div class="smile"></div>
       <div class="eye left"></div>
       <div class="eye right"></div>
     </div>
     <div class="body">
+      <div class="hand left"></div>
+      <div class="hand right"></div>
+      <div class="coat-line"></div>
+      <div class="badge"></div>
+      <div class="coat-line"></div>
+      <div class="badge"></div>
       <div class="stethoscope"></div>
     </div>
   </div>
@@ -274,6 +396,26 @@
   </main>  <footer>
     Made with sincerity & duas 🤍 | Islamic Birthday Theme
   </footer>  <script>
+    // Surprise Game Logic
+    const overlay = document.getElementById('overlay');
+    const btn = document.getElementById('openBtn');
+
+    btn.addEventListener('click', () => {
+      overlay.style.display = 'none';
+    });
+
+    // Rose petals falling animation
+    const petalsCount = 20;
+    for (let i = 0; i < petalsCount; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = 6 + Math.random() * 6 + 's';
+      petal.style.animationDelay = Math.random() * 5 + 's';
+      petal.style.transform = `scale(${0.6 + Math.random()})`;
+      document.body.appendChild(petal);
+    }
+
     // Rose petals falling animation
     const petalsCount = 20;
     for (let i = 0; i < petalsCount; i++) {
@@ -293,4 +435,4 @@
     });
     });
   </script></body>
-  </html>
+    </html>
